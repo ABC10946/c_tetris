@@ -10,8 +10,8 @@
 #define WIDTH 12
 #define HEIGHT 21
 
-
-typedef enum {
+typedef enum
+{
 	Tet_I,
 	Tet_O,
 	Tet_S,
@@ -21,16 +21,16 @@ typedef enum {
 	Tet_T
 } TetriminoKind;
 
-
-typedef enum {
+typedef enum
+{
 	Space,
 	Block,
 	Operating,
 	Wall
 } BlockKind;
 
-
-typedef enum {
+typedef enum
+{
 	Up,
 	Down,
 	Left,
@@ -38,7 +38,6 @@ typedef enum {
 } Direction;
 
 BlockKind field[HEIGHT][WIDTH];
-
 
 extern int i_tet[4][4][2];
 extern int o_tet[4][4][2];
@@ -48,18 +47,20 @@ extern int j_tet[4][4][2];
 extern int l_tet[4][4][2];
 extern int t_tet[4][4][2];
 
-typedef struct Tetrimino {
+typedef struct Tetrimino
+{
 	int (*tet)[];
 } Tetrimino;
 
-typedef struct OperateTet {
+typedef struct OperateTet
+{
 	int x;
 	int y;
 	TetriminoKind kind;
 	int rotation_id;
 } OperateTet;
 
-Tetrimino* tetriminos(TetriminoKind, int);
+Tetrimino *tetriminos(TetriminoKind, int);
 
 OperateTet opTet;
 
