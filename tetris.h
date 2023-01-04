@@ -60,7 +60,7 @@ typedef struct OperateTet
 	int rotation_id;
 } OperateTet;
 
-Tetrimino *tetriminos(TetriminoKind, int);
+Tetrimino *tetriminos(TetriminoKind kind, int rotation_id);
 
 OperateTet opTet;
 
@@ -70,21 +70,21 @@ TetriminoKind kinds[7];
 
 void init_field();
 
-void put_tetrimino(int (*)[2], int, int);
+void put_tetrimino(int tetrimino[4][2], int x, int y);
 
 void print_field();
 
 void clear_operated_tetrimino();
 
-bool setable_operated_tet(OperateTet);
+bool setable_operated_tet(OperateTet opTet);
 
-void change_to_block(OperateTet);
+void change_to_block(OperateTet opTet);
 
-void move_all_block(int, int);
+void move_all_block(int pivot, int step);
 
-void delete_line(int);
+void delete_line(int line_num);
 
-bool is_full_line(int);
+bool is_full_line(int line_num);
 
 void reset_game();
 
